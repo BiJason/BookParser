@@ -68,7 +68,7 @@ def countSyl(word):
     return len((dic.inserted(word)).split('-'))
 
 
-def getWordCount(fileName):
+def analyzeFile(fileName):
     p = MyParser(fileName)
     sentences = len(re.split(r'(?<!\d)\.(?!\d)', p.retstr.getvalue()))
     words = 0
@@ -82,22 +82,14 @@ def getWordCount(fileName):
             syllables = syllables + countSyl(w)
     score = 206.835 - (1.015 * (float(words)/sentences)) - (84.6 * (float(syllables)/words))
     gradeLevel = (0.39 * (float(words)/sentences)) + (11.8 * (float(syllables)/words)) - 15.59
-    print("sentences", sentences)
-    print("words", words)
-    print("syllables", syllables)
-    print("readibility score", score)
-    print("Grade level", gradeLevel)
-    #sorted_keys = sorted(wordCounts, key=wordCounts.get, reverse=True)
-    #for k in sorted_keys:
+    minutes = words / 250
+    analyzed = [sentences, words, syllables, score, round(gradeLevel), round(minutes)]
+    return analyzed
     
     
         
 
 
-
-
-if __name__ == '__main__':
-    getWordCount("algorithms.pdf")
     
 
 
