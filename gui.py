@@ -13,7 +13,7 @@ def uploadFile():
         doc = PdfFileReader(file)
         curAnalytics = textbookParse.analyzeFile(file.name)    
         #raise analytics info
-        analytics = Label(analyticsFrame, text = "Here's some info about the file that you updated!\n\nIn total you pdf file has {0} words and {1} sentences.\nThe file has a Flesch readability score of {2}.\nThe average grade level of this file is {3}th grade.\nWith an average reading spead of 250 words per minute, it would take you {4} minutes to read the whole text.".format(curAnalytics[1], curAnalytics[0], round(curAnalytics[3], 2), int(curAnalytics[4]),int(curAnalytics[5])))
+        analytics = Label(analyticsFrame, text = "Here's some info about the file that you uploaded!\n\nIn total your pdf file has {0} words and {1} sentences.\nThe file has a Flesch readability score of {2}.\nThe average grade level of this file is {3}th grade.\nWith an average reading spead of 250 words per minute, it would take you {4} minutes to read the whole text.".format(curAnalytics[1], curAnalytics[0], round(curAnalytics[3], 2), int(curAnalytics[4]),int(curAnalytics[5])))
         analytics.place(relx = 0.5, rely = 0.5, anchor = CENTER)
         raise_frame(analyticsFrame)
         #more info popup

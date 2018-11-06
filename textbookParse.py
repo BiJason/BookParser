@@ -84,6 +84,7 @@ def analyzeFile(fileName):
     gradeLevel = (0.39 * (float(words)/sentences)) + (11.8 * (float(syllables)/words)) - 15.59
     minutes = words / 250
     analyzed = [sentences, words, syllables, score, round(gradeLevel), round(minutes)]
+
     return analyzed
     
     
